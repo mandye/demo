@@ -1,0 +1,21 @@
+<table>
+	<tr>
+		<th>Username</th>
+		<th>Favorite Language</th>
+	</tr>
+	<% for user in @users %>
+	<tr>
+		<td><%=h user.username %></td>
+		<td><%=h user.favorite_language %></td>
+		<td><%= link_to 'Show', :action => 'show', :id => user %></td>
+		<td><%= link_to 'Edit', :action => 'edit', :id => user %></td>
+		<td><%= link_to 'Destroy', { :action => 'destroy', :id => user },
+		:confirm => 'Are you sure?', :method => :post %></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= will_paginate @users %>
+
+<%= link_to 'New user', :action => 'new' %>
+
